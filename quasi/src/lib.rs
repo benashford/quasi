@@ -126,7 +126,7 @@ impl ToTokens for ast::Generics {
     fn to_tokens(&self, cx: &ExtCtxt) -> Vec<TokenTree> {
         let s = pprust::generics_to_string(self);
 
-        parse_tts_from_source_str("<quote expansion>".to_string(), s, cx.cfg(), cx.parse_sess())
+        parse_tts_from_source_str("<quote expansion>".to_string(), s, cx.cfg(), cx.parse_sess()).unwrap()
     }
 }
 
@@ -136,7 +136,7 @@ impl ToTokens for ast::WhereClause {
             s.print_where_clause(&self)
         });
 
-        parse_tts_from_source_str("<quote expansion>".to_string(), s, cx.cfg(), cx.parse_sess())
+        parse_tts_from_source_str("<quote expansion>".to_string(), s, cx.cfg(), cx.parse_sess()).unwrap()
     }
 }
 
@@ -311,28 +311,28 @@ impl<'a> ExtParseUtils for ExtCtxt<'a> {
             "<quote expansion>".to_string(),
             s,
             self.cfg(),
-            self.parse_sess()).expect("parse error")
+            self.parse_sess()).expect("parse error").expect("item")
     }
 
     fn parse_stmt(&self, s: String) -> ast::Stmt {
         parse::parse_stmt_from_source_str("<quote expansion>".to_string(),
                                           s,
                                           self.cfg(),
-                                          self.parse_sess()).expect("parse error")
+                                          self.parse_sess()).expect("parse error").expect("item")
     }
 
     fn parse_expr(&self, s: String) -> P<ast::Expr> {
         parse::parse_expr_from_source_str("<quote expansion>".to_string(),
                                           s,
                                           self.cfg(),
-                                          self.parse_sess())
+                                          self.parse_sess()).expect("item")
     }
 
     fn parse_tts(&self, s: String) -> Vec<ast::TokenTree> {
         parse::parse_tts_from_source_str("<quote expansion>".to_string(),
                                          s,
                                          self.cfg(),
-                                         self.parse_sess())
+                                         self.parse_sess()).expect("item")
     }
 }
 
