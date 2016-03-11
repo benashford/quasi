@@ -11,6 +11,6 @@ default = ["with-syntex"]
 with-syntex = ["syntex", "syntex_syntax", "aster/with-syntex"]
 
 [dependencies]
-aster = { git = "https://github.com/benashford/aster", default-features = false }
-syntex = { git = "https://github.com/benashford/syntex", optional = true }
-syntex_syntax = { git = "https://github.com/benashford/syntex", optional = true }
+aster = { git = "https://github.com/benashford/aster", branch = "experimental", default-features = false }
+syntex = { git = "https://github.com/benashford/syntex", branch = "experimental", optional = true }
+syntex_syntax = { git = "https://github.com/benashford/syntex", branch = "experimental", optional = true }

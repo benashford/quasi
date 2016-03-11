@@ -10,4 +10,4 @@ repository = "https://github.com/erickt/rust-quasi"
 with-syntex = ["syntex_syntax"]
 
 [dependencies]
-syntex_syntax = { optional = true, git = "https://github.com/benashford/syntex" }
+syntex_syntax = { optional = true, git = "https://github.com/benashford/syntex", branch = "experimental" }

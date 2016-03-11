@@ -9,10 +9,10 @@ build = "build.rs"
 
 [build-dependencies]
 quasi_codegen = { path = "../quasi_codegen" }
-syntex = { git = "https://github.com/benashford/syntex" }
+syntex = { git = "https://github.com/benashford/syntex", branch = "experimental" }
 
 [dev-dependencies]
-aster = { git = "https://github.com/benashford/aster", features = ["with-syntex"] }
+aster = { git = "https://github.com/benashford/aster", branch = "experimental", features = ["with-syntex"] }
 quasi = { path = "../quasi", features = ["with-syntex"] }
-syntex = { git = "https://github.com/benashford/syntex" }
-syntex_syntax = { git = "https://github.com/benashford/syntex" }
+syntex = { git = "https://github.com/benashford/syntex", branch = "experimental" }
+syntex_syntax = { git = "https://github.com/benashford/syntex", branch = "experimental" }

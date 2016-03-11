@@ -14,5 +14,5 @@ plugin = true
 quasi_codegen = { version = "^0.7.0", path = "../quasi_codegen", default-features = false }
 
 [dev-dependencies]
-aster = "^0.13.0"
+aster = { git = "https://github.com/benashford/aster", branch = "experimental" }
 quasi = { version = "^0.7.0", path = "../quasi" }
